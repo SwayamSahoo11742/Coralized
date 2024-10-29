@@ -48,3 +48,15 @@
   width: 100vw;
   height: 100vh;
 }
+
+/* Customize the Clustered Markers */
+.marker-cluster-custom {
+  background: #000000;
+  border: 3px solid #ededed;
+  border-radius: 50%;
+  color: #ededed;
+  height: 40px;
+  line-height: 37px;
+  text-align: center;
+  width: 40px;
+}
