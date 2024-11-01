@@ -1,14 +1,72 @@
-import CoralMap from "./coral";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"; // Import necessary components
+import { useSpring, animated } from "@react-spring/web";
+import "./App.css";
+import CoralMap from "./coral"; // Assume CoralMap component exists
+import BubbleEffect from "./bubble";
 
 function App() {
+  const titleSpring = useSpring({
+    opacity: 1,
+    transform: "translateY(0px)",
+    from: { opacity: 0, transform: "translateY(-20px)" },
+    config: { duration: 800 },
+  });
+
+  const buttonSpring = useSpring({
+    opacity: 1,
+    transform: "scale(1)",
+    from: { opacity: 0, transform: "scale(0.8)" },
+    delay: 300,
+    config: { duration: 500 },
+  });
+
   return (
-    <div className="relative h-screen"> {/* Set the parent to relative and full height */}
-      <CoralMap />
-      <div className="absolute top-4 left-4 z-50 bg-white bg-opacity-75 p-4 rounded-md shadow-lg"> {/* Overlay div with higher z-index */}
-        <h1 className="text-lg font-bold z-50">Overlay Title</h1>
-        <p>This is an overlay text!</p>
+    <Router> {/* Wrap your app with Router */}
+      <div className="app">
+        <Routes> {/* Define your routes */}
+          <Route
+            path="/"
+            element={
+              <div className="landing-page">
+                <div className="bubbles">
+                  {Array.from({ length: 30 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="bubble"
+                      style={{
+                        left: `${Math.random() * 100}vw`,
+                        animationDelay: `${Math.random() * 5}s`,
+                        animationDuration: `${3 + Math.random() * 5}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+                <animated.h1 style={titleSpring} className="title">
+                  Coral Bleaching Awareness
+                </animated.h1>
+                <animated.p style={titleSpring} className="description">
+                  Coral reefs are under threat due to rising sea temperatures and
+                  increased UV radiation. Help us monitor and protect these vital
+                  ecosystems.
+                </animated.p>
+                <animated.button
+                  style={buttonSpring}
+                  className="map-button"
+                  onClick={() => window.location.href = "/map"} // Redirect to /map
+                >
+                  Map
+                </animated.button>
+                <div className="coral-reef" />
+                <BubbleEffect />
+              </div>
+            }
+          />
+          <Route path="/map" element={<CoralMap />} /> {/* Define the route for CoralMap */}
+        </Routes>
+
       </div>
-    </div>
+    </Router>
   );
 }
 
