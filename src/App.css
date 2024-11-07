@@ -3,6 +3,7 @@
 }
 body{
   cursor:none;
+  overflow: hidden;
 }
 .App-logo {
   height: 40vmin;

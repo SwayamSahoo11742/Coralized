@@ -15,7 +15,7 @@ const createClusterCustomIcon = function (cluster) {
 };
 
 function CoralMap() {
-  const [score, setScore] = useState("Click button"); // State to store sea temperature score
+  const [score, setScore] = useState("Click button (give it 1 sec)"); // State to store sea temperature score
   const [activeMarkerId, setActiveMarkerId] = useState(null); // Track active marker
 
   function linearRegression(temps) {
@@ -41,8 +41,8 @@ function CoralMap() {
   }
 
   async function getRad(long, lat) {
-    const username = "rizz_sahoo_swayam"; 
-    const password = "54RqiVD9wb"; 
+    const username = "HIDDEN"; 
+    const password = "HIDDEN"; 
 
     const tdy = new Date().toISOString().split('T')[0];
     const futureDateObj = new Date();
@@ -77,8 +77,8 @@ function CoralMap() {
   }
 
   async function getSeaTemperature(long, lat) {
-    const username = "rizz_sahoo_swayam"; 
-    const password = "54RqiVD9wb"; 
+    const username = "HIDDEN"; 
+    const password = "HIDDEN"; 
 
     const tdy = (new Date()).toISOString().split('T')[0]; 
     const futureDateObj = new Date();
@@ -121,15 +121,17 @@ function CoralMap() {
     }
     
     try {
-      const rad = await getRad(long, lat);
-      const waterTempM = await getSeaTemperature(long, lat);
-      const waterTempScore = -waterTempM * 1000; 
+      // const rad = await getRad(long, lat);
+      // const waterTempM = await getSeaTemperature(long, lat);
+      // const waterTempScore = -waterTempM * 1000; 
       
-      if (rad <= 0.5) {
-        setScore(((waterTempScore + 5) * (1 + rad) - 5).toFixed(2));
-      } else {
-        setScore(((waterTempScore - 5) * (1 + rad) + 5)).toFixed(2);
-      }
+      // if (rad <= 0.5) {
+      //   setScore(((waterTempScore + 5) * (1 + rad) - 5).toFixed(2));
+      // } else {
+      //   setScore(((waterTempScore - 5) * (1 + rad) + 5)).toFixed(2);
+      // }
+      console.log("HEHEHAW")
+      setScore("Not paying for the API (was on free trial)")
     } catch (error) {
       console.error("Error calculating score:", error);
     }
