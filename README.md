@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Coralized
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot 2024-11-01 210341](https://github.com/user-attachments/assets/5a7a4fd9-2e89-41b3-9df3-72affea8fe86)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+Coralized is an app aimed to visualize and access coral bleaching
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project was made for the [HorizonHacks 2024](https://horizonhacks-2024.devpost.com/) Hackathon. (We won!)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Demo
+[Project Link](https://peaceful-panda-d2cfcc.netlify.app/)
 
-### `npm test`
+**NOTE: The future bleaching pediction does not work as I cannot pay for the API. I was on a free trial during the hackathon**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Purpose
 
-### `npm run build`
+- Coralized is made to shine light on the vastly underlooked issue of coral bleaching
+- It also aims to provide a method of quantifying the severity and likeliness of future bleaching for a selected reefs
+- This is important as we are going through the 4th global bleaching event right now, which started back in 2023
+- By 2050, 90% of global coral reefs are projected to experience coral bleaching every year
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Image Gallery
+![Screenshot 2024-11-01 200852](https://github.com/user-attachments/assets/62837f57-f10f-463b-ae32-9598cbbc8026)
+![Screenshot 2024-11-01 200947](https://github.com/user-attachments/assets/0ac56bd1-dde1-44e9-a9a5-7e4775a02bba)
+![Screenshot 2024-11-01 201024](https://github.com/user-attachments/assets/c02fc94f-505b-4385-a158-15d9705c9d29)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Tech Stack and Tools
+- JS/HTML/CSS
+- ArcGIS
+- ReactJS
+- Leaflet
+- NOAA Public Data
+- Mateomatics API
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Process
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Mapping
+- To map the coral reefs and their bleaching level currently we utilized public data given by the NOAA
+- We then mapped the data into GeoJSON 
+- The GeoJSON was fed into Leaflet to be graphed
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Future Bleaching Predictions
+- To create predictions, we identified two variables that are primary causes of bleaching: UV radiation and temperature
+- We used Mateomatics API to see past trends in both factors and made a weighted score
+- This score represents whether the area will bleach or heal, and its severity
+- Score < 0, it will bleach
+- Score > 0, it will heal
+- |Score| = severity
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
