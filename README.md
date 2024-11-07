@@ -6,6 +6,12 @@
 
 Coralized is an app aimed to visualize and access coral bleaching
 
+This project was made for the [HorizonHacks 2024](https://horizonhacks-2024.devpost.com/) Hackathon. (We won!)
+
+# Demo
+[Project Link](https://peaceful-panda-d2cfcc.netlify.app/)
+
+**NOTE: The future bleaching pediction does not work as I cannot pay for the API. I was on a free trial during the hackathon**
 
 # Purpose
 
